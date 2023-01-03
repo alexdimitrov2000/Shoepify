@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shoepify.Data\Shoepify.Data.csproj" />
+    <ProjectReference Include="..\Shoepify.Domain\Shoepify.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
