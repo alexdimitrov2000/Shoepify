@@ -118,7 +118,15 @@ namespace Shoepify.Web.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    
+                    // First registered user is automatically Admin
+                    if (_userManager.Users.Count() == 1)
+                    {
+                        await _userManager.AddToRoleAsync(user, "Admin");
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, "User");
+                    }
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
