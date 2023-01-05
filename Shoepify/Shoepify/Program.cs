@@ -8,14 +8,15 @@ using Shoepify.Services.Contracts;
 using Shoepify.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
-builder.Services.AddDbContext<ShoepifyContext>(options =>
+services.AddDbContext<ShoepifyContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+services.AddControllersWithViews();
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     {
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 2;
@@ -27,11 +28,13 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         .AddRoles<IdentityRole>()
         .AddEntityFrameworkStores<ShoepifyContext>();
 
-builder.Services.AddRazorPages();
+services.AddRazorPages();
 
-builder.Services.AddScoped<IColorsService, ColorsService>();
+// Register entity services
+services.AddScoped<IColorsService, ColorsService>();
+services.AddScoped<ISizesService, SizesService>();
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
