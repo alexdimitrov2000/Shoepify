@@ -1,0 +1,37 @@
+﻿@model Shoepify.Web.Areas.Administration.Models.Sizes.SizeCreateInputModel
+
+@{
+    ViewData["Title"] = "Create a Size";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="jumbotron">
+        <form asp-area="Administration" asp-controller="Sizes" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="row justify-content-around">
+                <div class="col-md-6">
+                    <div class="col-md-10">
+                        <h4 class="text-center">Required fields</h4>
+                        <div class="form-group">
+                            <label asp-for="SizeInCm" class="control-label"></label> <span class="required-field">&#42;</span>
+                            <input asp-for="SizeInCm" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SizeEU" class="control-label"></label> <span class="required-field">&#42;</span>
+                            <input asp-for="SizeEU" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SizeUS" class="control-label"></label> <span class="required-field">&#42;</span>
+                            <input asp-for="SizeUS" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="btn text-center col-md-3 col-sm-12" id="createButton">Create</button>
+            </div>
+        </form>
+    </div>
+</main>
