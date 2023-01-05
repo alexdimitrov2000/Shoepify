@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Shoepify.Models;
+using Shoepify.Web.Models;
 using System.Diagnostics;
 
-namespace Shoepify.Controllers
+namespace Shoepify.Web.Controllers
 {
     public class HomeController : Controller
     {

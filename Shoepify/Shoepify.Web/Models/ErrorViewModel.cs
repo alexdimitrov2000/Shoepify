@@ -1,4 +1,4 @@
-namespace Shoepify.Models
+namespace Shoepify.Web.Models
 {
     public class ErrorViewModel
     {
