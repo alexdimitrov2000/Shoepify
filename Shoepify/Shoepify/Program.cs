@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Shoepify.Domain;
 using Microsoft.AspNetCore.Identity;
 using Shoepify.Infrastructure.Extensions;
+using Shoepify.Services.Contracts;
+using Shoepify.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddScoped<IColorsService, ColorsService>();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,6 +52,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.SeedRoles();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller}/{action}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
