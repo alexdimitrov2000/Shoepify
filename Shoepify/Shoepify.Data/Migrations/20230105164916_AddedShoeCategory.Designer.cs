@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shoepify.Data;
 
@@ -11,9 +12,11 @@ using Shoepify.Data;
 namespace Shoepify.Data.Migrations
 {
     [DbContext(typeof(ShoepifyContext))]
-    partial class ShoepifyContextModelSnapshot : ModelSnapshot
+    [Migration("20230105164916_AddedShoeCategory")]
+    partial class AddedShoeCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shoepify.Data;
 
@@ -11,9 +12,11 @@ using Shoepify.Data;
 namespace Shoepify.Data.Migrations
 {
     [DbContext(typeof(ShoepifyContext))]
-    partial class ShoepifyContextModelSnapshot : ModelSnapshot
+    [Migration("20230105164716_AddedMoreShoeProperties")]
+    partial class AddedMoreShoeProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,9 +277,6 @@ namespace Shoepify.Data.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -293,8 +293,6 @@ namespace Shoepify.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Shoes");
                 });
@@ -402,16 +400,6 @@ namespace Shoepify.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Shoepify.Domain.Shoe", b =>
-                {
-                    b.HasOne("Shoepify.Domain.Category", "Category")
-                        .WithMany("Shoes")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("Shoepify.Domain.ShoeColor", b =>
                 {
                     b.HasOne("Shoepify.Domain.Color", "Color")
@@ -448,11 +436,6 @@ namespace Shoepify.Data.Migrations
                     b.Navigation("Shoe");
 
                     b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("Shoepify.Domain.Category", b =>
-                {
-                    b.Navigation("Shoes");
                 });
 
             modelBuilder.Entity("Shoepify.Domain.Color", b =>
