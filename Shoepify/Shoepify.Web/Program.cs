@@ -28,6 +28,13 @@ services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         .AddRoles<IdentityRole>()
         .AddEntityFrameworkStores<ShoepifyContext>();
 
+services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Identity/Account/Login";
+    options.LogoutPath = "/Identity/Account/Logout";
+    options.AccessDeniedPath = "/Administration/Administration/AccessDenied";
+});
+
 services.AddRazorPages();
 
 // Register entity services

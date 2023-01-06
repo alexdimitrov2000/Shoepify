@@ -7,5 +7,12 @@ namespace Shoepify.Web.Areas.Administration.Controllers
     [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            // todo: notify the user he has no access
+            return this.RedirectToAction("Index", "Home", new { area = "" });
+        }
     }
 }
