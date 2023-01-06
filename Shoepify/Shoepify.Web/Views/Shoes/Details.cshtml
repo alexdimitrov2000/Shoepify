@@ -1,0 +1,45 @@
+﻿@model Shoepify.Web.Models.Shoes.ShoeDetailsViewModel
+
+@{
+    ViewData["Title"] = "Shoe Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="mt-3">
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <hr class="teamLegend-line" />
+    <div class="jumbotron">
+        <h2 class="text-center">@Model.Brand @Model.Model</h2>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <p>@Html.DisplayFor(model => model.Gender)</p>
+                        <p>@Model.Category</p>
+                        <p>@Model.Description</p>
+                        <p>$@Model.Price</p>
+                        <h3>Sizes</h3>
+                        @foreach (var size in Model.Sizes)
+                        {
+                            <span>@size</span>
+                        }
+                        <h3>Colors:</h3>
+                        @foreach (var color in Model.Colors)
+                        {
+                            <div style="background-color: #@color ; width: 25px; height: 25px; border: 1px solid #000"></div>
+                        }
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-teamLegend" id="adminButton" asp-area="Administration" asp-controller="Stadiums" asp-action="Delete" asp-route-id="@Model.Id">Delete Stadium</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img src="@Model.ImageURL" class="img-fluid" style="width: 500px" />
+            </div>
+        </div>
+    </div>
+</main>

@@ -27,5 +27,20 @@ namespace Shoepify.Web.Controllers
 
             return this.View(shoesCollection);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var shoe = await this.shoesService.GetByIdAsync(id);
+
+            if (shoe == null)
+            {
+                return this.Redirect("/");
+            }
+
+            var shoeViewModel = this.mapper.Map<ShoeDetailsViewModel>(shoe);
+
+            return this.View(shoeViewModel);
+        }
     }
 }
