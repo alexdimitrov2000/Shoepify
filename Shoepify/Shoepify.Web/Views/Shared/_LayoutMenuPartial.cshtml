@@ -1,0 +1,28 @@
+﻿<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    @if (this.User != null && this.User.Identity != null && this.User.Identity.IsAuthenticated)
+    {
+        @if (this.User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" id="dropdown-create-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Create
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" id="dropdown-menu-content">
+                        <a class="dropdown-item text-bold" asp-area="Administration" asp-controller="Colors" asp-action="Create">New Color</a>
+                        <a class="dropdown-item text-bold" asp-area="Administration" asp-controller="Sizes" asp-action="Create">New Size</a>
+                        <a class="dropdown-item text-bold" asp-area="Administration" asp-controller="Categories" asp-action="Create">New Category</a>
+                        <a class="dropdown-item text-bold" asp-area="Administration" asp-controller="Shoes" asp-action="Create">New Shoe</a>
+                    </div>
+                </div>
+            </li>
+        }
+
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Shoes" asp-action="All">Shoes</a>
+        </li>
+    }
+</ul>
