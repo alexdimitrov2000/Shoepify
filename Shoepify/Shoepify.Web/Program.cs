@@ -33,6 +33,7 @@ services.AddRazorPages();
 // Register entity services
 services.AddScoped<IColorsService, ColorsService>();
 services.AddScoped<ISizesService, SizesService>();
+services.AddScoped<ICategoriesService, CategoriesService>();
 
 services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

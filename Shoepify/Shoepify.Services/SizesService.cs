@@ -34,7 +34,7 @@ namespace Shoepify.Services
 
         public async Task<Size?> GetByIdAsync(int id)
         {
-            return await this.context.Sizes.SingleOrDefaultAsync(c => c.Id == id);
+            return await this.context.Sizes.SingleOrDefaultAsync(s => s.Id == id);
         }
     }
 }
