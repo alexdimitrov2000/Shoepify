@@ -34,6 +34,7 @@ services.AddRazorPages();
 services.AddScoped<IColorsService, ColorsService>();
 services.AddScoped<ISizesService, SizesService>();
 services.AddScoped<ICategoriesService, CategoriesService>();
+services.AddScoped<IShoesService, ShoesService>();
 
 services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

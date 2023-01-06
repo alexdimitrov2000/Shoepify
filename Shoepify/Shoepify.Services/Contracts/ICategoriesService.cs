@@ -9,5 +9,7 @@ namespace Shoepify.Services.Contracts
         Task<Category?> GetByIdAsync(int id);
 
         Task<Category?> GetByNameAsync(string name);
+
+        Task<List<Category>> GetAllAsync();
     }
 }

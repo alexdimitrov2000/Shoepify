@@ -9,5 +9,7 @@ namespace Shoepify.Services.Contracts
         Task<Color?> GetByIdAsync(int id);
 
         Task<Color?> GetByNameAsync(string name);
+
+        Task<List<Color>> GetAllAsync();
     }
 }

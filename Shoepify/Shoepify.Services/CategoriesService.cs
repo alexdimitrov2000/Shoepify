@@ -42,5 +42,10 @@ namespace Shoepify.Services
         {
             return await this.context.Categories.SingleOrDefaultAsync(s => s.Name == name);
         }
+
+        public async Task<List<Category>> GetAllAsync()
+        {
+            return await this.context.Categories.ToListAsync();
+        }
     }
 }

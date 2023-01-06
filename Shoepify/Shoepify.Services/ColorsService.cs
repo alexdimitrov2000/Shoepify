@@ -42,5 +42,10 @@ namespace Shoepify.Services
         {
             return await this.context.Colors.SingleOrDefaultAsync(c => c.Name == name);
         }
+
+        public async Task<List<Color>> GetAllAsync()
+        {
+            return await this.context.Colors.ToListAsync();
+        }
     }
 }

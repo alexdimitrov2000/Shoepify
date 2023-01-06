@@ -7,5 +7,7 @@ namespace Shoepify.Services.Contracts
         Task<Size?> CreateAsync(Size size);
 
         Task<Size?> GetByIdAsync(int id);
+
+        Task<List<Size>> GetAllAsync();
     }
 }
