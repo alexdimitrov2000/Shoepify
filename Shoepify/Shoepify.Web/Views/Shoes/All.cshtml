@@ -1,0 +1,30 @@
+﻿@model Shoepify.Web.Models.Shoes.ShoesAllCollectionViewModel
+
+@{
+    ViewData["Title"] = "All Shoes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            @foreach (var shoe in Model.Shoes)
+            {
+                <div class="team m-3 text-center">
+                    <img src="@shoe.ImageURL" id="shoeImg" height="100" />
+                    <hr />
+                    <div>
+                        <a asp-area="" asp-controller="Shoes" asp-action="Details" asp-route-id="@shoe.Id">
+                            <h3>@shoe.Brand</h3>
+                            <h4>@shoe.Model</h4>
+                        </a>
+                        <span>@shoe.Colors @(shoe.Colors == 1 ? "color" : "colors")</span>
+                        <p>$@shoe.Price</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>
