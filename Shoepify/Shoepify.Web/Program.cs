@@ -1,6 +1,5 @@
 using Shoepify.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Shoepify.Domain;
 using Microsoft.AspNetCore.Identity;
 using Shoepify.Infrastructure.Extensions;
@@ -11,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 services.AddDbContext<ShoepifyContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseLazyLoadingProxies()
+        .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 services.AddControllersWithViews();

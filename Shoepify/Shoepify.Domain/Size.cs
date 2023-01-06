@@ -10,6 +10,6 @@
 
         public double SizeUS { get; set; }
 
-        public ICollection<ShoeSize> Shoes { get; set; } = new List<ShoeSize>();
+        public virtual ICollection<ShoeSize> Shoes { get; set; } = new List<ShoeSize>();
     }
 }

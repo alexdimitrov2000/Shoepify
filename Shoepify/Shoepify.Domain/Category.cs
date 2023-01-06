@@ -6,6 +6,6 @@
 
         public string? Name { get; set; }
 
-        public ICollection<Shoe> Shoes { get; set; } = new List<Shoe>();
+        public virtual ICollection<Shoe> Shoes { get; set; } = new List<Shoe>();
     }
 }

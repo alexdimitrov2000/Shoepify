@@ -14,6 +14,6 @@ namespace Shoepify.Domain
 
         public string? Hex { get; set; }
 
-        public ICollection<ShoeColor> Shoes { get; set; } = new List<ShoeColor>();
+        public virtual ICollection<ShoeColor> Shoes { get; set; } = new List<ShoeColor>();
     }
 }

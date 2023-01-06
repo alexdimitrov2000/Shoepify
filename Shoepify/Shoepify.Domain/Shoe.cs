@@ -27,10 +27,10 @@ namespace Shoepify.Domain
         public Gender Gender { get; set; }
 
         public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public virtual Category? Category { get; set; }
 
-        public ICollection<ShoeSize> Sizes { get; set; } = new List<ShoeSize>();
+        public virtual ICollection<ShoeSize> Sizes { get; set; } = new List<ShoeSize>();
 
-        public ICollection<ShoeColor> Colors { get; set; } = new List<ShoeColor>();
+        public virtual ICollection<ShoeColor> Colors { get; set; } = new List<ShoeColor>();
     }
 }
