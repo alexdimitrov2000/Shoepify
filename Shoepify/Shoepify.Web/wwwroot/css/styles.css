@@ -6,6 +6,7 @@
 
 .site > div.container {
     flex-grow: 1;
+    max-width: 1680px;
 }
 
 header, header nav, footer {
@@ -99,4 +100,14 @@ ul.shoes-list {
     font-size: 1.2em;
     margin-top: 1em;
     margin-bottom: 1rem;
+}
+
+main .row .cart {
+    margin-right: 4em;
+    margin-top: 3em;
+    font-size: 1.2em;
+}
+
+main .row .cart > div {
+    background-color: #22A39F;
 }

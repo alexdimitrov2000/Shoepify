@@ -13,7 +13,14 @@ services.AddDbContext<ShoepifyContext>(options =>
     options.UseLazyLoadingProxies()
         .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add services to the container.
+services.AddDistributedMemoryCache();
+
+services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(1);
+    options.Cookie.IsEssential = true;
+});
+
 services.AddControllersWithViews();
 
 services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -59,6 +66,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
