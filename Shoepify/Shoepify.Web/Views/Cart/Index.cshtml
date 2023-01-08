@@ -4,41 +4,43 @@
     ViewData["Title"] = "Cart";
 }
 
-@if (Model.CartItems.Count > 0)
-{
-    <table class="table">
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th></th>
-            <th>Price</th>
-            <th>Total</th>
-        </tr>
-        @foreach (var item in Model.CartItems)
-        {
+<main class="container">
+    @if (Model.CartItems.Count > 0)
+    {
+        <table class="table">
             <tr>
-                <td>@item.ShoeName</td>
-                <td>@item.Quantity</td>
-                <td>
-                    <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.ShoeId">+</a>
-                    <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.ShoeId">-</a>
-                    <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.ShoeId">Remove</a>
-                </td>
-                <td>@item.Price.ToString("C2")</td>
-                <td>@Model.CartItems.Where(x => x.ShoeId == item.ShoeId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
             </tr>
-        }
-        <tr>
-            <td class="text-right" colspan="4">Grand Total: @Model.TotalPrice.ToString("C2")</td>
-        </tr>
-        <tr>
-            <td class="text-right" colspan="4">
-                <a class="btn btn-primary" asp-action="Clear">Clear Cart</a>
-            </td>
-        </tr>
-    </table>
-}
-else
-{
-    <h3 class="display-5 text-center">Your cart is empty.</h3>
-}
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.ShoeName</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Price.ToString("F2")</td>
+                    <td>$@Model.CartItems.Where(x => x.ShoeId == item.ShoeId).Sum(x => x.Quantity * x.Price).ToString("F2")</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.ShoeId">+</a>
+                        <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.ShoeId">-</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.ShoeId">Remove</a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td class="text-right" colspan="4">Grand Total: $@Model.TotalPrice.ToString("F2")</td>
+            </tr>
+            <tr>
+                <td class="text-right" colspan="4">
+                    <a class="btn btn-primary" asp-action="Clear">Clear Cart</a>
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <h3 class="display-5 text-center">Your cart is empty.</h3>
+    }
+</main>

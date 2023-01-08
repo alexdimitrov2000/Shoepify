@@ -4,8 +4,11 @@
     min-height: 100vh;
 }
 
-.site > div.container {
+.site > main.container {
     flex-grow: 1;
+}
+
+.site > main.container.cart-container {
     max-width: 1680px;
 }
 
