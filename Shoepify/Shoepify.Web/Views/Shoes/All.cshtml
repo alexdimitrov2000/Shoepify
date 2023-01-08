@@ -8,23 +8,25 @@
 <main>
     <h1 class="text-center">@this.ViewData["Title"]</h1>
 
-    <div class="container-fluid">
-        <div class="row justify-content-around">
-            @foreach (var shoe in Model.Shoes)
-            {
-                <div class="team m-3 text-center">
-                    <img src="@shoe.ImageURL" id="shoeImg" height="100" />
-                    <hr />
-                    <div>
-                        <a asp-area="" asp-controller="Shoes" asp-action="Details" asp-route-id="@shoe.Id">
-                            <h3>@shoe.Brand</h3>
-                            <h4>@shoe.Model</h4>
-                        </a>
-                        <span>@shoe.Colors @(shoe.Colors == 1 ? "color" : "colors")</span>
-                        <p>$@shoe.Price</p>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
+    <ul class="shoes-list">
+        @foreach (var shoe in Model.Shoes)
+        {
+            <li class="shoe text-center">
+                <span class="media">
+                    <a asp-area="" asp-controller="Shoes" asp-action="Details" asp-route-id="@shoe.Id">
+                        <span class="shoe-image">
+                            <img src="@shoe.ImageURL" alt="@shoe.Model">
+                        </span>
+                    </a>
+                </span>
+                <hr />
+                <span class="shoe-info">
+                    <span class="shoe-brand">@shoe.Brand</span>
+                    <span class="shoe-model">@shoe.Model</span>
+                    <span class="shoe-colors">@shoe.Colors @(shoe.Colors == 1 ? "color" : "colors")</span>
+                    <span class="shoe-price">$@shoe.Price</span>
+                </span>
+            </li>
+        }
+    </ul>
 </main>
