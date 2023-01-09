@@ -64,7 +64,7 @@ namespace Shoepify.Web.Areas.Administration.Controllers
                 return this.View(model);
             }
 
-            return this.RedirectToAction("Index", "Home", new { area = "" });
+            return this.RedirectToAction("All", "Shoes", new { area = "" });
         }
     }
 }
