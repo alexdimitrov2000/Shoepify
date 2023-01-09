@@ -13,81 +13,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main class="container">
-    <h1 class="text-center">@ViewData["Title"]</h1>
+<main class="container form-page">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
 
-    <div class="jumbotron">
-        <form asp-area="Administration" asp-controller="Shoes" asp-action="Create" method="post" enctype="multipart/form-data">
-            <div class="row justify-content-around">
-                <div class="col-md-6">
-                    <div class="col-md-10">
-                        <h4 class="text-center">Required fields</h4>
-                        <div class="form-group">
-                            <label asp-for="Brand" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <input asp-for="Brand" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BrandModel" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <input asp-for="BrandModel" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Description" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <input asp-for="Description" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Price" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <input asp-for="Price" class="form-control" type="number" min="0.00" step="0.10" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Gender" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <select class="dropdown-select form-control" asp-for="Gender">
-                                <option disabled selected class="dropdown-select">Select Gender</option>
-                                @foreach (var gender in Html.GetEnumSelectList<Gender>())
-                                {
-                                    <option value="@gender.Value" class="dropdown-select">@gender.Text</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="ImageURL" class="control-label"></label> <span class="required-field">&#42;</span>
-                            <input asp-for="ImageURL" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="CategoryId" class="control-label"></label>
-                            <select class="dropdown-select form-control" asp-for="CategoryId">
-                                <option disabled selected="selected" class="dropdown-select">Select a Category</option>
-                                @foreach (var category in categories)
-                                {
-                                    <option value="@category.Id" class="dropdown-select">@category.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="ShoeSizes" class="control-label"></label>
-                            <select multiple class="dropdown-select form-control" asp-for="ShoeSizes" id="selectedSizes">
-                                <option disabled class="dropdown-select">Select Sizes</option>
-                                @foreach (var size in sizes)
-                                {
-                                    <option value="@size.Id" class="dropdown-select">@size.SizeInCm cm / @size.SizeEU EU / @size.SizeUS US</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="ShoeColors" class="control-label"></label>
-                            <select multiple class="dropdown-select form-control" asp-for="ShoeColors" id="selectedColors">
-                                <option disabled class="dropdown-select">Select Colors</option>
-                                @foreach (var color in colors)
-                                {
-                                    <option value="@color.Id" class="dropdown-select">@color.Name</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <form class="mt-4 mb-4" asp-area="Administration" asp-controller="Shoes" asp-action="Create" method="post" enctype="multipart/form-data">
+                <h2>Required fields</h2>
+                <hr />
+                <div class="form-floating mb-3">
+                    <input asp-for="Brand" class="form-control" autocomplete="brand" aria-required="true" placeholder="Nike" />
+                    <label asp-for="Brand" class="form-label">Brand</label>
                 </div>
-            </div>
-            <div class="button-holder d-flex justify-content-center">
-                <button type="submit" class="btn text-center col-md-3 col-sm-12" id="createButton">Create</button>
-            </div>
-        </form>
+                <div class="form-floating mb-3">
+                    <input asp-for="BrandModel" class="form-control" aria-required="true" placeholder="AirForce" />
+                    <label asp-for="BrandModel" class="form-label">Model</label>
+                </div>
+                <div class="form-group mb-3">
+                    <textarea class="form-control" asp-for="Description" rows="2" placeholder="Description"></textarea>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Price" class="form-control" aria-required="true" type="number" min="0.00" step="0.10" placeholder="0.00" />
+                    <label asp-for="Price" class="form-label">Price</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="ImageURL" class="form-control" aria-required="true" placeholder="ImageURL" />
+                    <label asp-for="ImageURL" class="form-label">Image URL</label>
+                </div>
+                <div class="form-group mb-3">
+                    <select class="form-control" asp-for="Gender">
+                        <option disabled selected class="dropdown-select">Select Gender</option>
+                        @foreach (var gender in Html.GetEnumSelectList<Gender>())
+                        {
+                            <option value="@gender.Value">@gender.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <select class="form-control" asp-for="CategoryId">
+                        <option disabled selected class="dropdown-select">Select Category</option>
+                        @foreach (var category in categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="ShoeSizes" class="control-label mb-2">Select Sizes</label>
+                    <select multiple class="form-control" asp-for="ShoeSizes" size="3">
+                        @foreach (var size in sizes)
+                        {
+                            <option value="@size.Id">@size.SizeInCm cm / @size.SizeEU EU / @size.SizeUS US</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="ShoeColors" class="control-label mb-2">Select Colors</label>
+                    <select multiple class="form-control" asp-for="ShoeColors" size="3">
+                        @foreach (var color in colors)
+                        {
+                            <option value="@color.Id">@color.Name</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="w-100 btn btn-lg btn-primary mb-3" id="createButton">Create</button>
+                </div>
+            </form>
+        </div>
     </div>
 </main>

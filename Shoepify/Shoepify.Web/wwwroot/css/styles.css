@@ -40,6 +40,11 @@ ul.shoes-list {
     position: relative;
 }
 
+.shoes-list .shoe hr {
+    margin-top: 0;
+    height: 2px;
+}
+
 .shoes-list .shoe .media {
     display: block;
     overflow: hidden;
@@ -130,17 +135,37 @@ main .row .cart > div {
     box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.6);
 }
 
-.form-page form input {
+.form-page form input,
+.form-page form textarea,
+.form-page form select {
     transition: box-shadow 0.1s ease-in;
 }
 
+.form-page form select {
+    cursor: grab;
+}
+
+.form-page form select[multiple] {
+    overflow-y: auto;
+    cursor: pointer;
+}
+
 .form-page form input:hover,
-.form-page form input:focus {
+.form-page form input:focus,
+.form-page form textarea:hover,
+.form-page form textarea:focus,
+.form-page form select:hover,
+.form-page form select:focus {
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.3);
 }
 
 .form-page form input:focus,
+.form-page form select:focus,
 .form-page form button[type=submit]:focus {
     outline: none;
     border-color: transparent;
+}
+
+.form-page form .form-group > .form-control {
+    padding: 1rem 0.75rem;
 }
