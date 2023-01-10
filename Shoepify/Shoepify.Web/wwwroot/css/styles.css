@@ -256,3 +256,181 @@ main .row .cart > div {
     height: auto;
     transform: translate(-50%, -50%);
 }
+
+.home-page .wrapper {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 1em 2em;
+}
+
+.home-page .entry-content {
+    background: linear-gradient(to bottom, rgba(34, 163, 159, 0.1), rgba(34, 163, 159, 0.5)), url(../images/shoeworld.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.home-page .entry-content .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5em 0;
+}
+
+.home-page .entry-content .message {
+    padding: 7.2em 1.6em;
+    background-color: rgba(34, 163, 159, 0.9);
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.9);
+}
+
+.home-page .entry-content p {
+    color: #FFF;
+    font-size: 3.6em;
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.home-page .entry-content .actions a {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    background-color: #22A39F;
+    border: 3px solid #22A39F;
+    border-radius: 0.3em;
+    padding: 0.8em 1.4em;
+    font-weight: 700;
+    font-size: 1.4em;
+    transition: color 0.1s ease-in, background-color 0.1s ease-in;
+}
+
+.home-page .entry-content .actions a:hover,
+.home-page .entry-content .actions a:focus{
+    background-color: #FFF;
+    color: #22A39F;
+}
+
+.home-page .brands {
+    padding: 1em 0;
+}
+
+.home-page .brands header {
+    color: #4d4d4d;
+    background-color: #FFF;
+}
+
+.home-page .brands header > h2 {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.home-page .brands header > h2::before,
+.home-page .brands header > h2::after {
+    display: block;
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background-color: #22A39F;
+    opacity: 0.5;
+}
+
+.home-page .brands header > h2::before {
+    margin-right: 1em;
+}
+
+.home-page .brands header > h2::after {
+    margin-left: 1em;
+}
+
+.home-page .brands .links {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home-page .brands .links li:not(:last-of-type) {
+    margin-right: 0.7em;
+}
+
+.home-page .brands .links li.link {
+    flex: 1 0 30%;
+    list-style: none outside;
+    margin: 1.3em 0;
+    text-align: center;
+}
+
+.home-page .brands .links .link a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+.home-page .brands .links .link a::after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0.2em;
+    margin: 0 auto;
+    margin-top: 1em;
+    background-color: #22A39F;
+    transition: width 0.2s ease-in;
+}
+
+.home-page .brands .links .link a:hover::after,
+.home-page .brands .links .link a:focus::after {
+    width: 55%;
+}
+
+.home-page .brands .links .link a img {
+    max-width: 100%;
+    max-height: 8em;
+}
+
+.home-page .newsletter {
+    background-color: #22A39F;
+    color: #FFF;
+}
+
+.home-page .newsletter .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4em 2em;
+}
+
+.home-page .newsletter p {
+    margin-bottom: 0;
+    margin-right: 0.6em;
+    font-size: 1.4em;
+    flex-basis: 55%;
+    text-align: right;
+}
+
+.home-page .newsletter form {
+    flex-grow: 1;
+    display: flex;
+}
+
+.home-page .newsletter form input {
+    padding: 0.4em 0.6em;
+    border: none;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    flex-grow: 1;
+}
+
+.home-page .newsletter input:focus {
+    outline: none;
+}
+
+.home-page .newsletter button {
+    padding: 0.4em 0.6em;
+    border: none;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    background-color: #4d4d4d;
+    color: #FFF;
+}

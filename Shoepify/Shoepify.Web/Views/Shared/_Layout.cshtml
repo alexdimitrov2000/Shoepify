@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Shoepify</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/all.css" asp-append-version="true" />
 </head>
 <body>
     <div class="site">
-        <header class="mb-3 pt-1 pb-1">
+        <header class="pt-1 pb-1">
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow">
                 <div class="container-fluid">
                     <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Shoepify</a>
@@ -28,7 +27,7 @@
         </header>
         @RenderBody()
 
-        <footer class="border-top footer pt-3 pb-3">
+        <footer class="footer pt-3 pb-3">
             <div class="container">
                 &copy; 2022 - Shoepify
             </div>

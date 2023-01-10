@@ -2,9 +2,51 @@
     ViewData["Title"] = "Home Page";
 }
 
-<main class="container">
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
+<main class="home-page">
+    <section class="entry-content">
+        <div class="wrapper">
+            <section class="message">
+                <p>Say hello</p>
+                <p>to dream offers</p>
+            </section>
+            <section class="actions">
+                <a asp-controller="Shoes" asp-action="All">Shop now</a>
+            </section>
+        </div>
+    </section>
+    <section class="brands">
+        <div class="wrapper">
+            <header>
+                <h2>
+                    Main Brands
+                </h2>
+            </header>
+            <ul class="links">
+                <li class="link">
+                    <a href="https://www.nike.com/bg/" target="_blank">
+                        <img src="/images/nike.png" />
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="https://www.adidas.com/us" target="_blank">
+                        <img src="/images/adidas.jpg" />
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="https://www.underarmour.com/en-us/" target="_blank">
+                        <img src="/images/under-armour.jpg" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="newsletter">
+        <div class="wrapper">
+            <p>Get updates for new arrivals and discounts.</p>
+            <form method="get">
+                <input type="email" placeholder="Enter your email address" />
+                <button type="button">Sign up</button>
+            </form>
+        </div>
+    </section>
 </main>
