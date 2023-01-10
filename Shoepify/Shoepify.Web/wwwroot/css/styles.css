@@ -309,6 +309,7 @@ main .row .cart > div {
 .home-page .entry-content .actions a:focus{
     background-color: #FFF;
     color: #22A39F;
+    outline: none;
 }
 
 .home-page .brands {
@@ -366,6 +367,10 @@ main .row .cart > div {
     display: block;
     text-decoration: none;
     color: #000000;
+}
+
+.home-page .brands .links .link a:focus {
+    outline: none;
 }
 
 .home-page .brands .links .link a::after {
