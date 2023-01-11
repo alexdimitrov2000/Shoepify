@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Shoepify.Infrastructure.Extensions;
 using Shoepify.Services.Contracts;
 using Shoepify.Web.Models.Shoes;
 
@@ -21,7 +22,9 @@ namespace Shoepify.Web.Controllers
         {
             var shoes = await this.shoesService.GetAllAsync();
 
-            var shoesModels = shoes.Select(s => this.mapper.Map<ShoeViewModel>(s)).ToList();
+            var filteredShoes = HttpContext.Request.Query.GetFilteredShoes(shoes);
+
+            var shoesModels = filteredShoes.Select(s => this.mapper.Map<ShoeViewModel>(s)).ToList();
 
             var shoesCollection = new ShoesAllCollectionViewModel { Shoes = shoesModels };
 
