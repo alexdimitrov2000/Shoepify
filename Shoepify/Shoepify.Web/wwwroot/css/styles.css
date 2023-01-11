@@ -111,14 +111,44 @@ ul.shoes-list {
     margin-bottom: 1rem;
 }
 
-main .row .cart {
+main .row .aside {
     margin-right: 4em;
     margin-top: 3em;
     font-size: 1.2em;
 }
 
-main .row .cart > div {
+main .row .aside > div.cart {
     background-color: #22A39F;
+}
+
+main .row .aside > div.filter-form {
+    margin-top: 1em;
+    background-color: #4d4d4d;
+}
+
+main .row .aside > .filter-form select {
+    margin-bottom: 1em;
+    border-radius: 0.3em;
+    box-shadow: none;
+    cursor: grab;
+}
+
+main .row .aside > .filter-form select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #22A39F;
+}
+
+main .row .aside > .filter-form button {
+    border: 1px solid #22A39F;
+    border-radius: 0.3em;
+    background-color: #22A39F;
+    color: #FFF;
+    transition: background-color 0.1s ease-in;
+}
+
+main .row .aside > .filter-form button:hover,
+main .row .aside > .filter-form button:focus {
+    background-color: transparent;
 }
 
 .form-page {
