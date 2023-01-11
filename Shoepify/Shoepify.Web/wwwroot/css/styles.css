@@ -6,6 +6,7 @@
 
 .site > main.container {
     flex-grow: 1;
+    padding-top: 1em;
 }
 
 .site > main.container.cart-container {
