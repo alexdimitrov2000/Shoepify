@@ -67,7 +67,8 @@ namespace Shoepify.Web.Areas.Administration.Controllers
             return this.RedirectToAction("All", "Shoes", new { area = "" });
         }
 
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             var shoe = await this.shoesService.GetByIdAsync(id);
