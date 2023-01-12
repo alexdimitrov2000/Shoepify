@@ -5,7 +5,7 @@
 $(document).ready(function () {
     $("#filter").submit(function () {
         if ($("#name-field").val() == "") {
-            $("#name-field").remove();
+            $("#name-field").attr("disabled", "disabled");
         }
     });
 });
