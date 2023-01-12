@@ -9,3 +9,14 @@ $(document).ready(function () {
         }
     });
 });
+
+var modal = document.getElementById('modal');
+
+const showModal = () => {
+    modal.classList.add('show');
+};
+
+const closeModal = () => {
+    modal.classList.remove('show');
+
+};
