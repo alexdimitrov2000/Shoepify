@@ -6,10 +6,8 @@
 @{
     ViewData["Title"] = "All Shoes";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var name = "";
-    var gender = "";
-    var category = "";
     var categories = await this.categoriesService.GetAllAsync();
+    var colors = await this.colorsService.GetAllAsync();
 }
 
 <main class="container cart-container">
@@ -21,22 +19,28 @@
                 <vc:cart />
             </div>
             <div class="mr-3 p-3 filter-form">
-                <form method="get" asp-route="/Shoes/All?gender={@gender}&category={@category}" class="mt-2">
-                    <input asp-for="@name" class="form-control" placeholder="Search" autocomplete="off" />
-                    <select class="form-control" asp-for="@gender">
+                <form method="get" asp-route="/Shoes/All" class="mt-2" id="filter">
+                    <input name="name" class="form-control" placeholder="Search" autocomplete="off" id="name-field" />
+                    <select class="form-control" name="gender">
                         <option disabled selected class="dropdown-select">Select Gender</option>
                         @foreach (var g in Html.GetEnumSelectList<Gender>())
                         {
                             <option value="@g.Text">@g.Text</option>
                         }
                     </select>
-                    <select class="form-control" asp-for="@category">
+                    <select class="form-control" name=category>
                         <option disabled selected class="dropdown-select">Select Category</option>
                         @foreach (var c in categories)
                         {
                             <option value="@c.Name">@c.Name</option>
                         }
                     </select>
+                    @foreach (var c in colors)
+                    {
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="color" value="@c.Name" style="background-color:@c.Name">
+                        </div>
+                    }
                     <button type="submit" class="w-100">Filter</button>
                 </form>
             </div>

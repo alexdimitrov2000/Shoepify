@@ -157,6 +157,21 @@ main .row .aside > .filter-form button:focus {
     background-color: transparent;
 }
 
+main .row .aside > .filter-form .form-check-inline {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+main .row .aside > .filter-form input.form-check-input:focus {
+    box-shadow: none;
+}
+
+main .row .aside > .filter-form input.form-check-input:checked {
+    border-color: #22A39F;
+    box-shadow: 0 0 0 3px #22A39F;
+    background-image: none;
+}
+
 .form-page {
     text-align: center;
 }
