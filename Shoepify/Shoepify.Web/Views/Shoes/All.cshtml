@@ -6,6 +6,7 @@
 @{
     ViewData["Title"] = "All Shoes";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var name = "";
     var gender = "";
     var category = "";
     var categories = await this.categoriesService.GetAllAsync();
@@ -21,6 +22,7 @@
             </div>
             <div class="mr-3 p-3 filter-form">
                 <form method="get" asp-route="/Shoes/All?gender={@gender}&category={@category}" class="mt-2">
+                    <input asp-for="@name" class="form-control" placeholder="Search" autocomplete="off" />
                     <select class="form-control" asp-for="@gender">
                         <option disabled selected class="dropdown-select">Select Gender</option>
                         @foreach (var g in Html.GetEnumSelectList<Gender>())

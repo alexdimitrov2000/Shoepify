@@ -126,13 +126,18 @@ main .row .aside > div.filter-form {
     background-color: #4d4d4d;
 }
 
+main .row .aside > .filter-form input,
 main .row .aside > .filter-form select {
     margin-bottom: 1em;
     border-radius: 0.3em;
     box-shadow: none;
+}
+
+main .row .aside > .filter-form select {
     cursor: grab;
 }
 
+main .row .aside > .filter-form input:focus,
 main .row .aside > .filter-form select:focus {
     outline: none;
     box-shadow: 0 0 0 3px #22A39F;
@@ -141,6 +146,7 @@ main .row .aside > .filter-form select:focus {
 main .row .aside > .filter-form button {
     border: 1px solid #22A39F;
     border-radius: 0.3em;
+    padding: 3px 6px;
     background-color: #22A39F;
     color: #FFF;
     transition: background-color 0.1s ease-in;

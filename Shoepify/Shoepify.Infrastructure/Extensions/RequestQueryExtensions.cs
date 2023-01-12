@@ -13,9 +13,14 @@ namespace Shoepify.Infrastructure.Extensions
     {
         public static List<Shoe> GetFilteredShoes(this IQueryCollection query, List<Shoe> collection)
         {
+            StringValues nameParam = query["name"];
             StringValues genderParam = query["gender"];
             StringValues categoryParam = query["category"];
 
+            if (nameParam.Count != 0 && nameParam[0] != null)
+            {
+                collection = collection.Where(x => $"{x.Brand} {x.Model}".ToLower().Contains(nameParam[0]?.ToLower())).ToList();
+            }
             if (genderParam.Count != 0 && genderParam[0] != null)
             {
                 collection = collection.Where(x => x.Gender.ToString().ToLower() == genderParam[0]?.ToLower()).ToList();
