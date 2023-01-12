@@ -33,7 +33,7 @@
                 <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id">Add to cart</a>
                 @if (this.User.IsInRole("Admin"))
                 {
-                    <a class="btn btn-danger" id="adminButton" asp-area="Administration" asp-controller="Shoes" asp-action="Delete" asp-route-id="@Model.Id">Delete Shoe</a>
+                    <a class="btn btn-danger" asp-area="Administration" asp-controller="Shoes" asp-action="Delete" asp-route-id="@Model.Id">Delete Shoe</a>
                 }
             </div>
         </section>

@@ -66,5 +66,28 @@ namespace Shoepify.Web.Areas.Administration.Controllers
 
             return this.RedirectToAction("All", "Shoes", new { area = "" });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var shoe = await this.shoesService.GetByIdAsync(id);
+
+            if (shoe == null)
+            {
+                return this.NotFound();
+            }
+
+            try
+            {
+                await this.shoesService.DeleteAsync(shoe);
+            }
+            catch(DbUpdateException)
+            {
+                this.ModelState.AddModelError("Error", "Could not delete shoe.");
+                return this.BadRequest(this.ModelState);
+            }
+
+            return this.RedirectToAction("All", "Shoes", new { area = "" });
+        }
     }
 }

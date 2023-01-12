@@ -81,5 +81,22 @@ namespace Shoepify.Services
 
             return shoe;
         }
+
+        public async Task<bool> DeleteAsync(Shoe shoe)
+        {
+            if (shoe == null)
+            {
+                return false;
+            }
+
+            var shoeColors = shoe.Colors;
+            this.context.ShoeColors.RemoveRange(shoeColors);
+            var shoeSizes = shoe.Sizes;
+            this.context.ShoeSizes.RemoveRange(shoeSizes);
+            this.context.Shoes.Remove(shoe);
+            await this.context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

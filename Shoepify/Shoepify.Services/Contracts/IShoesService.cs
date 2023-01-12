@@ -13,5 +13,7 @@ namespace Shoepify.Services.Contracts
         Task<Shoe?> AddSizesAsync(Shoe shoe, List<Size?> sizesToAdd);
 
         Task<Shoe?> AddColorsAsync(Shoe shoe, List<Color?> colorToAdd);
+
+        Task<bool> DeleteAsync(Shoe shoe);
     }
 }
