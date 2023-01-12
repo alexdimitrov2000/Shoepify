@@ -476,3 +476,14 @@ main .row .aside > .filter-form button:focus {
     background-color: #4d4d4d;
     color: #FFF;
 }
+
+.container .cart-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.container .cart-image img {
+    width: 400px;
+    height: auto;
+}
