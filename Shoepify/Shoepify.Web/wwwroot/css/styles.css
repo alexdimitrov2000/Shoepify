@@ -498,6 +498,16 @@ main .row .aside > .filter-form input.form-check-input:checked {
 }
 
 /* Cart page styles */
+.container thead {
+    background-color: #4d4d4d;
+    color: #FFF;
+}
+
+.container td.text-right {
+    text-align: right;
+    padding-right: 1em;
+}
+
 .container .cart-image {
     display: flex;
     justify-content: center;
