@@ -123,6 +123,10 @@ main .row .aside > div.cart {
     background-color: #22A39F;
 }
 
+main .row .aside > .cart span.badge {
+    font-size: inherit;
+}
+
 main .row .aside > div.filter-form {
     margin-top: 1em;
     background-color: #4d4d4d;

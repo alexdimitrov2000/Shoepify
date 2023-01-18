@@ -3,7 +3,7 @@
 @if (Model != null) 
 {
     <p>Items in cart: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
-    <p>Total: <strong>$@Model.TotalPrice.ToString("F2")</strong></p>
+    <p>Total: <strong>@Model.TotalPrice.ToString("F2") lv.</strong></p>
     <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">View Cart</a>
     <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">Clear Cart</a>
 }

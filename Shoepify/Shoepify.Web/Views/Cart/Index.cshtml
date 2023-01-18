@@ -26,8 +26,8 @@
                     <tr>
                         <td>@item.ShoeName</td>
                         <td>@item.Quantity</td>
-                        <td>$@item.Price.ToString("F2")</td>
-                        <td>$@Model.CartItems.Where(x => x.ShoeId == item.ShoeId).Sum(x => x.Quantity * x.Price).ToString("F2")</td>
+                        <td>@item.Price.ToString("F2") lv.</td>
+                        <td>@Model.CartItems.Where(x => x.ShoeId == item.ShoeId).Sum(x => x.Quantity * x.Price).ToString("F2") lv.</td>
                         <td>
                             <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.ShoeId">+</a>
                             <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.ShoeId">-</a>
@@ -36,7 +36,7 @@
                     </tr>
                 }
                 <tr>
-                    <td class="text-right" colspan="5">Grand Total: $@Model.TotalPrice.ToString("F2")</td>
+                    <td class="text-right" colspan="5">Grand Total: @Model.TotalPrice.ToString("F2") lv.</td>
                 </tr>
                 <tr>
                     <td class="text-right" colspan="5">
